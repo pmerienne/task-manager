@@ -42,10 +42,30 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
+	<!-- Servlet permettant le data-push avec GWTEventService -->
+	<servlet>
+		<servlet-name>eventServiceImpl</servlet-name>
+		<servlet-class>de.novanic.eventservice.service.EventServiceImpl</servlet-class>
+	</servlet>
+
 	<servlet-mapping>
 		<servlet-name>serviceDispatcher</servlet-name>
 		<url-pattern>*.rpc</url-pattern>
 	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>eventServiceImpl</servlet-name>
+		<url-pattern>/taskmanager/gwteventservice</url-pattern>
+	</servlet-mapping>
+	<!-- <servlet> -->
+	<!-- <servlet-name>messagingServlet</servlet-name> -->
+	<!-- <servlet-class>com.pmerienne.taskmanager.server.messaging.GWTMessagingServletImpl</servlet-class> -->
+	<!-- </servlet> -->
+
+	<!-- <servlet-mapping> -->
+	<!-- <servlet-name>messagingServlet</servlet-name> -->
+	<!-- <url-pattern>messagingServlet.msg</url-pattern> -->
+	<!-- </servlet-mapping> -->
 
 	<!-- Default page to serve -->
 	<welcome-file-list>

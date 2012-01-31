@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.pmerienne.taskmanager.server.messaging.MessagingService;
 import com.pmerienne.taskmanager.server.repository.ProjectRepository;
 import com.pmerienne.taskmanager.server.repository.TaskRepository;
 import com.pmerienne.taskmanager.server.repository.UserRepository;
@@ -27,11 +28,16 @@ public class TaskServiceImpl implements TaskService {
 	@Autowired
 	ProjectRepository projectRepository;
 
+	@Autowired
+	MessagingService messagingService;
+
 	@Override
 	public Task save(Task task) {
 		User user = this.checkUser();
 		task.setUser(user);
-		return this.taskRepository.save(task);
+		this.taskRepository.save(task);
+		this.messagingService.onTaskSaved(task);
+		return task;
 	}
 
 	@Override

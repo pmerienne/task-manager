@@ -17,9 +17,9 @@
 		<mgwt.version>1.0.1</mgwt.version>
 		<gwt-dnd.version>2.5.6</gwt-dnd.version>
 		<gwteventservice.version>1.2.0-RC1</gwteventservice.version>
-		<spring.version>3.1.0.M2</spring.version>
+		<spring.version>3.1.0.RC2</spring.version>
 		<spring.data.mongo.version>1.0.0.M4</spring.data.mongo.version>
-		<org.aspectj.version>1.6.11</org.aspectj.version>
+		<org.aspectj.version>1.6.10</org.aspectj.version>
 		<log4j.version>1.2.16</log4j.version>
 		<slf4j-api.version>1.5.10</slf4j-api.version>
 		<slf4j-log4j12.version>1.5.10</slf4j-log4j12.version>
@@ -61,7 +61,7 @@
 	</repositories>
 
 	<build>
-		<finalName>task-manager</finalName>
+		<finalName>${project.artifactId}</finalName>
 		<!-- Generate compiled stuff in the folder used for developing mode -->
 		<outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
 		<plugins>
@@ -154,7 +154,7 @@
 									<overWriteReleases>false</overWriteReleases>
 									<overWriteSnapshots>false</overWriteSnapshots>
 									<overWriteIfNewer>true</overWriteIfNewer>
-									<excludeArtifactIds>gwt-user,gwt-dev,mgwt</excludeArtifactIds>
+									<excludeArtifactIds>gwt-user,gwt-dev,mgwt,gwt-dnd</excludeArtifactIds>
 								</configuration>
 							</execution>
 						</executions>

@@ -23,6 +23,7 @@ import com.googlecode.mgwt.ui.client.MGWTSettings.ViewPort.DENSITY;
 import com.googlecode.mgwt.ui.client.MGWTStyle;
 import com.pmerienne.taskmanager.client.activity.desktop.DesktopActivityMapper;
 import com.pmerienne.taskmanager.client.activity.mobile.MobileActivityMapper;
+import com.pmerienne.taskmanager.client.messaging.RemoteMessageDispatcher;
 import com.pmerienne.taskmanager.client.place.desktop.DashBoardPlace;
 import com.pmerienne.taskmanager.client.place.desktop.DesktopPlaceHistoryMapper;
 import com.pmerienne.taskmanager.client.place.mobile.HomePlace;
@@ -103,6 +104,9 @@ public class Application implements EntryPoint {
 		ResourceBundle.INSTANCE.style().ensureInjected();
 		ResourceBundle.INSTANCE.bootstrap().ensureInjected();
 		overrideBootstrapStyleSheet();
+
+		// Init data-push
+		RemoteMessageDispatcher.start(clientFactory.getEventBus());
 
 		// Init activity and places mappers
 		DesktopActivityMapper appActivityMapper = new DesktopActivityMapper(clientFactory);

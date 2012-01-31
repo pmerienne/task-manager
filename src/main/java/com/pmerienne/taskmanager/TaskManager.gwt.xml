@@ -6,6 +6,7 @@
 	<inherits name="com.googlecode.mgwt.MGWT" />
 	<inherits name='com.google.gwt.visualization.Visualization' />
 	<inherits name='com.allen_sauer.gwt.dnd.gwt-dnd' />
+    <inherits name="de.novanic.eventservice.GWTEventService"/>
 
 	<!-- uncomment this if you want to use gwt phonegap -->
 	<!--<inherits name="com.googlecode.gwtphonegap.PhoneGap"/> -->
@@ -17,8 +18,7 @@
 	<!-- <set-property name="mgwt.os" value="android" /> -->
 
 	<!-- here you can turn off css obfuscation -->
-	<set-configuration-property name="mgwt.css"
-		value="pretty" />
+	<set-configuration-property name="mgwt.css" value="pretty" />
 
 	<entry-point class="com.pmerienne.taskmanager.client.Application" />
 
