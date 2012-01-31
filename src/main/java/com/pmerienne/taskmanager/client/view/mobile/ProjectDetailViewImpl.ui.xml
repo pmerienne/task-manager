@@ -1,0 +1,35 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget"
+	xmlns:b="urn:import:com.googlecode.mgwt.ui.client.widget.buttonbar" xmlns:c="urn:import:com.pmerienne.taskmanager.client.widget.mobile.chart">
+	<mgwt:LayoutPanel>
+		<mgwt:HeaderPanel>
+			<mgwt:left>
+				<mgwt:HeaderButton ui:field="back" text="Revenir"
+					backButton="true" />
+			</mgwt:left>
+			<mgwt:center>
+				<g:HTML ui:field="title" />
+			</mgwt:center>
+			<mgwt:right>
+				<mgwt:HeaderButton ui:field="edit" text="Modifier"
+					forwardButton="true" />
+			</mgwt:right>
+		</mgwt:HeaderPanel>
+
+		<mgwt:ScrollPanel>
+			<g:HTMLPanel>
+				<h1>Informations</h1>
+				<g:Label ui:field="informations" />
+				<g:Label ui:field="users" />
+				
+				<h1>Description</h1>
+				<g:Label ui:field="description" />
+				
+				<h1>Tâches</h1>
+				<mgwt:Button ui:field="viewTasks" round="true" text="Liste des tâches" />
+				<c:ProjectTaskChart ui:field="chart"/>
+			</g:HTMLPanel>
+		</mgwt:ScrollPanel>
+	</mgwt:LayoutPanel>
+</ui:UiBinder> 

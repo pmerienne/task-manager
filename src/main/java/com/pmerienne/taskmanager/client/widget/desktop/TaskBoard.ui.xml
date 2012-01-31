@@ -1,0 +1,39 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:t="urn:import:com.pmerienne.taskmanager.client.widget.desktop">
+	<ui:style>
+		.taskcolumn {
+			width: 100%;
+		}
+	</ui:style>
+
+	<ui:with field="res"
+		type="com.pmerienne.taskmanager.client.resource.ResourceBundle" />
+
+	<g:HTMLPanel width="100%">
+		<g:AbsolutePanel ui:field="boundaryPanel" width="100%">
+			<g:HorizontalPanel width="100%" spacing="10">
+				<g:HTMLPanel>
+					<h3>Tâches à faire</h3>
+					<t:FlowPanelWithSpacer ui:field="todo"
+						styleName="{style.taskcolumn}" />
+				</g:HTMLPanel>
+				<g:HTMLPanel>
+					<h3>Tâches en cours</h3>
+					<t:FlowPanelWithSpacer ui:field="doing"
+						styleName="{style.taskcolumn}" />
+				</g:HTMLPanel>
+				<g:HTMLPanel>
+					<h3>Tâches finies</h3>
+					<t:FlowPanelWithSpacer ui:field="done"
+						styleName="{style.taskcolumn}" />
+				</g:HTMLPanel>
+				<g:HTMLPanel>
+					<h3>Tâches archivées</h3>
+					<t:FlowPanelWithSpacer ui:field="archived"
+						styleName="{style.taskcolumn}" />
+				</g:HTMLPanel>
+			</g:HorizontalPanel>
+		</g:AbsolutePanel>
+	</g:HTMLPanel>
+</ui:UiBinder>

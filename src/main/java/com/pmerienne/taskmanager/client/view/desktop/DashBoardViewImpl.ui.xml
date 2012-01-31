@@ -1,0 +1,57 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:d="urn:import:com.pmerienne.taskmanager.client.widget.desktop">
+
+	<ui:with field="res"
+		type="com.pmerienne.taskmanager.client.resource.ResourceBundle" />
+
+	<g:HTMLPanel>
+		<!-- Navigation bar -->
+		<div class="{res.bootstrap.topbar}">
+			<div class="{res.bootstrap.topbarInner}">
+				<div class="{res.bootstrap.container}">
+					<g:Anchor addStyleNames="{res.bootstrap.brand}" text="Task Manager"
+						href="#" />
+					<ul class="{res.bootstrap.nav}">
+						<li>
+							<g:Anchor ui:field="dashBoardLink" text="Dashboard"
+								href="#DashBoardPlace" />
+						</li>
+						<li>
+							<g:Anchor ui:field="userManagementLink" text="Utilisateurs"
+								href="#UserManagementPlace" />
+						</li>
+					</ul>
+
+					<ul class="{res.bootstrap.nav} {res.bootstrap.secondaryNav}">
+						<li>
+							<g:Anchor ui:field="logoutLink" text="Déconnexion" href="#" />
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="{res.bootstrap.container} {res.style.mainContent}">
+			<h1>Dashboard</h1>
+			<g:HorizontalPanel height="100%" width="100%" spacing="10">
+				<!-- Left menu -->
+				<g:HTMLPanel height="500px" width="200px">
+					<h2>Projets</h2>
+					<g:ScrollPanel height="100%" addStyleNames="{res.style.bordered}">
+						<d:ProjectList ui:field="projectList" width="100%" height="100%" />
+					</g:ScrollPanel>
+				</g:HTMLPanel>
+
+				<!-- Dashboard -->
+				<g:HTMLPanel height="500px" width="700px">
+					<h2 ui:field="projectName" />
+					<g:Label ui:field="projectDescription" />
+					<g:Label ui:field="projectCreationDate" />
+					<d:TaskBoard ui:field="taskBoard"/>
+				</g:HTMLPanel>
+
+			</g:HorizontalPanel>
+		</div>
+	</g:HTMLPanel>
+</ui:UiBinder> 

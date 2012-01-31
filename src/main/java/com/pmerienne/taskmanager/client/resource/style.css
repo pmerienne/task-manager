@@ -1,0 +1,20 @@
+.error {
+	color: red;
+}
+
+.centered {
+	margin-left: auto;
+}
+
+.spaced {
+	margin: 10px 10px 10px 10px;
+}
+
+.mainContent {
+	margin-top: 40px;
+	height: 700px;
+}
+
+.bordered {
+	border: solid 1px gray;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:m="urn:import:com.pmerienne.taskmanager.client.widget.mobile"
+	xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget">
+	<mgwt:LayoutPanel>
+		<mgwt:HeaderPanel>
+			<mgwt:left>
+				<mgwt:HeaderButton ui:field="cancel" text="Annuler" backButton="true" />
+			</mgwt:left>
+			<mgwt:center>
+				<g:HTML text="Édition" />
+			</mgwt:center>
+		</mgwt:HeaderPanel>
+
+		<mgwt:ScrollPanel>
+			<g:HTMLPanel>
+				<mgwt:WidgetList round="true" >
+					<mgwt:MTextBox ui:field="name" placeHolder="Nom"/>
+					<mgwt:MTextArea ui:field="description" placeHolder="Description"/>
+					<g:ListBox ui:field="userList" multipleSelect="true"/>
+				</mgwt:WidgetList>
+				<hr />
+				<mgwt:Button ui:field="delete" round="true" important="true" text="Supprimer" />
+				<mgwt:Button ui:field="save" text="Sauvegarder" round="true" confirm="true"/>
+			</g:HTMLPanel>
+		</mgwt:ScrollPanel>
+	</mgwt:LayoutPanel>
+</ui:UiBinder> 

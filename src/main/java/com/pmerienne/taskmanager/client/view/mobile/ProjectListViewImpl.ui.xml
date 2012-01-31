@@ -1,0 +1,22 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:m="urn:import:com.pmerienne.taskmanager.client.widget.mobile"
+	xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget" xmlns:l="urn:import:com.pmerienne.taskmanager.client.widget.mobile.list">
+	<mgwt:LayoutPanel>
+		<mgwt:HeaderPanel>
+			<mgwt:left>
+				<mgwt:HeaderButton ui:field="back" text="Revenir" backButton="true" />
+			</mgwt:left>
+			<mgwt:center>
+				<g:HTML text="Mes projets" />
+			</mgwt:center>
+			<mgwt:right>
+				<mgwt:HeaderButton ui:field="newProject" text="Créer" forwardButton="true" />
+			</mgwt:right>
+		</mgwt:HeaderPanel>
+
+		<mgwt:ScrollPanel>
+			<l:ProjectList ui:field="projectList"/>
+		</mgwt:ScrollPanel>
+	</mgwt:LayoutPanel>
+</ui:UiBinder> 
