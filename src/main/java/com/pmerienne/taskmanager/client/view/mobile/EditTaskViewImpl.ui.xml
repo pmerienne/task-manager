@@ -18,6 +18,7 @@
 					<mgwt:MTextBox ui:field="name" placeHolder="Nom"/>
 					<mgwt:MTextArea ui:field="description" placeHolder="Description"/>
 					<g:ListBox ui:field="projectList"/>
+					<g:ListBox ui:field="userList" multipleSelect="true" visibleItemCount="3"/>
 					<mgwt:MRadioButton ui:field="todo" name="status" text="À faire" />
 					<mgwt:MRadioButton ui:field="doing" name="status" text="En cours" />
 					<mgwt:MRadioButton ui:field="done" name="status" text="Finie" />

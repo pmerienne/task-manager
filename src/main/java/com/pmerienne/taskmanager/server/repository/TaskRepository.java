@@ -13,7 +13,7 @@ public interface TaskRepository extends MongoRepository<Task, String> {
 
 	List<Task> findByStatus(TaskStatus status);
 
-	List<Task> findByUserAndStatus(User user, TaskStatus status);
+	List<Task> findByUsersAndStatus(User user, TaskStatus status);
 
 	List<Task> findByProjectAndStatus(Project project, TaskStatus status);
 

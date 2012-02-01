@@ -85,7 +85,10 @@ public class TaskBoard extends Composite {
 	public void removeTask(Task task) {
 		if (this.tasks.containsKey(task)) {
 			HTML widget = this.tasks.remove(task);
-			this.columns.get(task.getStatus()).remove(widget);
+			this.todo.remove(widget);
+			this.doing.remove(widget);
+			this.done.remove(widget);
+			this.archived.remove(widget);
 			// this.widgetDragController.makeNotDraggable(widget);
 		}
 	}
@@ -94,7 +97,10 @@ public class TaskBoard extends Composite {
 		for (Task task : this.tasks.keySet()) {
 			if (this.tasks.containsKey(task)) {
 				HTML widget = this.tasks.get(task);
-				this.columns.get(task.getStatus()).remove(widget);
+				this.todo.remove(widget);
+				this.doing.remove(widget);
+				this.done.remove(widget);
+				this.archived.remove(widget);
 				// this.widgetDragController.makeNotDraggable(widget);
 			}
 		}

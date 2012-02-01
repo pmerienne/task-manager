@@ -14,6 +14,7 @@ import com.pmerienne.taskmanager.client.view.mobile.EditTaskView;
 import com.pmerienne.taskmanager.shared.model.Project;
 import com.pmerienne.taskmanager.shared.model.Task;
 import com.pmerienne.taskmanager.shared.model.TaskStatus;
+import com.pmerienne.taskmanager.shared.model.User;
 
 public class EditTaskActivity extends AbstractActivity implements EditTaskView.Presenter {
 
@@ -45,7 +46,22 @@ public class EditTaskActivity extends AbstractActivity implements EditTaskView.P
 		view.setPresenter(this);
 		panel.setWidget(view);
 		loadAvailableProjects();
+		loadAvailableUsers();
 		loadTask();
+	}
+
+	private void loadAvailableUsers() {
+		Services.userService.findAll(new AsyncCallback<List<User>>() {
+			@Override
+			public void onFailure(Throwable caught) {
+				Dialogs.alert("Erreur", "Erreur lors du chargement des utilisateurs : " + caught.getMessage(), null);
+			}
+
+			@Override
+			public void onSuccess(List<User> users) {
+				clientFactory.getEditTaskView().setAvailableUsers(users);
+			}
+		});
 	}
 
 	private void loadAvailableProjects() {

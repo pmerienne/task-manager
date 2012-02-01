@@ -17,7 +17,7 @@
 				<mgwt:WidgetList round="true" >
 					<mgwt:MTextBox ui:field="name" placeHolder="Nom"/>
 					<mgwt:MTextArea ui:field="description" placeHolder="Description"/>
-					<g:ListBox ui:field="userList" multipleSelect="true"/>
+					<g:ListBox ui:field="userList" multipleSelect="true" visibleItemCount="3"/>
 				</mgwt:WidgetList>
 				<hr />
 				<mgwt:Button ui:field="delete" round="true" important="true" text="Supprimer" />

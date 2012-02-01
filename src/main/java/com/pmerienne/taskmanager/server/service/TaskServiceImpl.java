@@ -33,8 +33,6 @@ public class TaskServiceImpl implements TaskService {
 
 	@Override
 	public Task save(Task task) {
-		User user = this.checkUser();
-		task.setUser(user);
 		this.taskRepository.save(task);
 		this.messagingService.onTaskSaved(task);
 		return task;
@@ -43,7 +41,7 @@ public class TaskServiceImpl implements TaskService {
 	@Override
 	public void delete(Task task) {
 		User user = this.checkUser();
-		if (user.equals(task.getUser())) {
+		if (task.getUsers().contains(user)) {
 			this.taskRepository.delete(task);
 		} else {
 			throw new IllegalAccessError("User doesn't have the right");
@@ -59,11 +57,11 @@ public class TaskServiceImpl implements TaskService {
 				throw new IllegalArgumentException("Project with id " + projectId + " doesn't exists");
 			}
 			if (!project.getUsers().contains(user)) {
-				throw new IllegalArgumentException("Pas le droit !");
+				throw new IllegalAccessError("User doesn't have the right");
 			}
 			return this.taskRepository.findByProjectAndStatus(project, status);
 		} else {
-			return this.taskRepository.findByUserAndStatus(user, status);
+			return this.taskRepository.findByUsersAndStatus(user, status);
 		}
 	}
 

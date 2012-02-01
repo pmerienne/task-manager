@@ -17,6 +17,7 @@ import com.googlecode.mgwt.ui.client.widget.MTextBox;
 import com.pmerienne.taskmanager.shared.model.Project;
 import com.pmerienne.taskmanager.shared.model.Task;
 import com.pmerienne.taskmanager.shared.model.TaskStatus;
+import com.pmerienne.taskmanager.shared.model.User;
 
 public class EditTaskViewImpl extends Composite implements EditTaskView {
 
@@ -33,6 +34,9 @@ public class EditTaskViewImpl extends Composite implements EditTaskView {
 
 	@UiField
 	ListBox projectList;
+
+	@UiField
+	ListBox userList;
 
 	@UiField
 	MRadioButton todo;
@@ -52,6 +56,8 @@ public class EditTaskViewImpl extends Composite implements EditTaskView {
 
 	private List<Project> availableProjects = new ArrayList<Project>();
 
+	private List<User> availableUsers = new ArrayList<User>();
+
 	public EditTaskViewImpl() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
@@ -65,6 +71,7 @@ public class EditTaskViewImpl extends Composite implements EditTaskView {
 	protected void onSaveTaped(TapEvent event) {
 		this.task.setName(this.name.getValue());
 		this.task.setDescription(this.description.getValue());
+		// Set status
 		if (this.todo.getValue()) {
 			this.task.setStatus(TaskStatus.TODO);
 		} else if (this.doing.getValue()) {
@@ -74,9 +81,17 @@ public class EditTaskViewImpl extends Composite implements EditTaskView {
 		} else if (this.archived.getValue()) {
 			this.task.setStatus(TaskStatus.ARCHIVED);
 		}
+		// Set project
 		int selectedIndex = this.projectList.getSelectedIndex();
 		Project selectedProject = this.availableProjects.get(selectedIndex);
 		this.task.setProject(selectedProject);
+		// Set users
+		this.task.getUsers().clear();
+		for (int i = 0; i < this.userList.getItemCount(); i++) {
+			if (this.userList.isItemSelected(i)) {
+				this.task.getUsers().add(this.availableUsers.get(i));
+			}
+		}
 		this.presenter.save(this.task);
 	}
 
@@ -128,7 +143,15 @@ public class EditTaskViewImpl extends Composite implements EditTaskView {
 		for (Project project : projects) {
 			this.projectList.addItem(project.getName());
 		}
-		this.projectList.setSelectedIndex(0);
+	}
+
+	@Override
+	public void setAvailableUsers(List<User> users) {
+		this.availableUsers = users;
+		this.userList.clear();
+		for (User user : users) {
+			this.userList.addItem(user.getLogin());
+		}
 	}
 
 	@Override

@@ -13,7 +13,7 @@
 	<import resource="security-context.xml"/>
 
 	<context:annotation-config />
-	<context:component-scan base-package="com.pmerienne.taskmanager.server.service" />
+	<context:component-scan base-package="com.pmerienne.taskmanager.server.service,com.pmerienne.taskmanager.server.messaging" />
 
 	<!-- Mongo repositories -->
 	<mongo:repositories base-package="com.pmerienne.taskmanager.server.repository" mongo-template-ref="mongoTemplate" />

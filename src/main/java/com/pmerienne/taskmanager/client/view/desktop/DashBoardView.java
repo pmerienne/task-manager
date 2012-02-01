@@ -17,4 +17,6 @@ public interface DashBoardView extends IsWidget {
 	void setAvailableProjects(List<Project> projects);
 
 	void setTasks(List<Task> tasks);
+
+	void updateTask(Task task);
 }

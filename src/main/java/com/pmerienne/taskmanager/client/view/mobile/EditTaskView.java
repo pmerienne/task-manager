@@ -5,6 +5,7 @@ import java.util.List;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.pmerienne.taskmanager.shared.model.Project;
 import com.pmerienne.taskmanager.shared.model.Task;
+import com.pmerienne.taskmanager.shared.model.User;
 
 public interface EditTaskView extends IsWidget {
 
@@ -19,6 +20,8 @@ public interface EditTaskView extends IsWidget {
 	void setPresenter(Presenter presenter);
 
 	void setTask(Task task);
-	
+
 	void setAvailableProjects(List<Project> projects);
+
+	void setAvailableUsers(List<User> users);
 }

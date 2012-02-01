@@ -10,6 +10,8 @@ import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.pmerienne.taskmanager.client.DesktopClientFactory;
 import com.pmerienne.taskmanager.client.utils.Services;
 import com.pmerienne.taskmanager.client.view.desktop.DashBoardView;
+import com.pmerienne.taskmanager.shared.messaging.event.TaskSavedEvent;
+import com.pmerienne.taskmanager.shared.messaging.event.TaskSavedHandler;
 import com.pmerienne.taskmanager.shared.model.Project;
 import com.pmerienne.taskmanager.shared.model.Task;
 
@@ -27,7 +29,17 @@ public class DashBoardActivity extends AbstractActivity implements DashBoardView
 		view.setPresenter(this);
 		panel.setWidget(view);
 		loadAvailableProjects();
+		bind();
 	}
+
+	private void bind() {
+		this.clientFactory.getEventBus().addHandler(TaskSavedEvent.getType(), new TaskSavedHandler() {
+			@Override
+			public void onTaskSaved(TaskSavedEvent event) {
+				clientFactory.getDashBoardView().updateTask(event.getTask());
+			}
+		});
+	};
 
 	@Override
 	public void loadTask(Project project) {

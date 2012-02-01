@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
@@ -54,20 +53,16 @@ public class EditProjectViewImpl extends Composite implements EditProjectView {
 		History.back();
 	}
 
-	@UiHandler("userList")
-	protected void onUsersChanged(ChangeEvent event) {
-		this.project.getUsers().clear();
-		for (int i = 0; i < this.userList.getVisibleItemCount(); i++) {
-			if (this.userList.isItemSelected(i)) {
-				this.project.getUsers().add(this.availableUsers.get(i));
-			}
-		}
-	}
-
 	@UiHandler("save")
 	protected void onSaveTaped(TapEvent event) {
 		this.project.setName(this.name.getValue());
 		this.project.setDescription(this.description.getValue());
+		this.project.getUsers().clear();
+		for (int i = 0; i < this.userList.getItemCount(); i++) {
+			if (this.userList.isItemSelected(i)) {
+				this.project.getUsers().add(this.availableUsers.get(i));
+			}
+		}
 		this.presenter.save(this.project);
 	}
 

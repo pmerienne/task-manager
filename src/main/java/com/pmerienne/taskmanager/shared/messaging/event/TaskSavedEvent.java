@@ -27,6 +27,10 @@ public class TaskSavedEvent extends GwtEvent<TaskSavedHandler> implements Event 
 
 	private Task task;
 
+	@Deprecated
+	public TaskSavedEvent() {
+	}
+
 	public TaskSavedEvent(Task task) {
 		this.task = task;
 	}

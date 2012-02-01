@@ -16,7 +16,7 @@
 package com.pmerienne.taskmanager.client;
 
 import com.google.gwt.place.shared.PlaceController;
-import com.google.web.bindery.event.shared.EventBus;
+import com.google.gwt.event.shared.EventBus;
 import com.pmerienne.taskmanager.client.view.mobile.EditProjectView;
 import com.pmerienne.taskmanager.client.view.mobile.EditTaskView;
 import com.pmerienne.taskmanager.client.view.mobile.HomeView;

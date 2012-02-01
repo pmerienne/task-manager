@@ -1,7 +1,9 @@
 package com.pmerienne.taskmanager.shared.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Task implements Serializable {
 
@@ -15,7 +17,7 @@ public class Task implements Serializable {
 
 	private Date creationDate = new Date();
 
-	private User user;
+	private List<User> users = new ArrayList<User>();
 
 	private Project project;
 
@@ -32,11 +34,10 @@ public class Task implements Serializable {
 		this.status = status;
 	}
 
-	public Task(String name, String description, User user) {
+	public Task(String name, String description) {
 		super();
 		this.name = name;
 		this.description = description;
-		this.user = user;
 	}
 
 	public Task(TaskStatus status) {
@@ -83,12 +84,12 @@ public class Task implements Serializable {
 		this.project = project;
 	}
 
-	public User getUser() {
-		return user;
+	public List<User> getUsers() {
+		return users;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 
 	public TaskStatus getStatus() {
@@ -126,8 +127,8 @@ public class Task implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Task [name=" + name + ", description=" + description + ", creationDate=" + creationDate + ", user="
-				+ user + ", status=" + status + "]";
+		return "Task [id=" + id + ", name=" + name + ", description=" + description + ", creationDate=" + creationDate
+				+ ", project=" + project + ", status=" + status + "]";
 	}
 
 }

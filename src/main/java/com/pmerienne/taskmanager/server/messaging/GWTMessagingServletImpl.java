@@ -9,9 +9,9 @@ import com.pmerienne.taskmanager.shared.model.Task;
 
 import de.novanic.eventservice.client.event.domain.Domain;
 import de.novanic.eventservice.client.event.domain.DomainFactory;
-import de.novanic.eventservice.service.RemoteEventServiceServlet;
+import de.novanic.eventservice.service.EventServiceImpl;
 
-public class GWTMessagingServletImpl extends RemoteEventServiceServlet implements MessageHandler {
+public class GWTMessagingServletImpl extends EventServiceImpl implements MessageHandler {
 
 	private static final long serialVersionUID = 4925922732085721124L;
 

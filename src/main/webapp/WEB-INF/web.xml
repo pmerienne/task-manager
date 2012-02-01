@@ -44,8 +44,9 @@
 
 	<!-- Servlet permettant le data-push avec GWTEventService -->
 	<servlet>
-		<servlet-name>eventServiceImpl</servlet-name>
-		<servlet-class>de.novanic.eventservice.service.EventServiceImpl</servlet-class>
+		<servlet-name>messagingServlet</servlet-name>
+		<servlet-class>com.pmerienne.taskmanager.server.messaging.GWTMessagingServletImpl</servlet-class>
+		<load-on-startup>2</load-on-startup>
 	</servlet>
 
 	<servlet-mapping>
@@ -54,7 +55,7 @@
 	</servlet-mapping>
 
 	<servlet-mapping>
-		<servlet-name>eventServiceImpl</servlet-name>
+		<servlet-name>messagingServlet</servlet-name>
 		<url-pattern>/taskmanager/gwteventservice</url-pattern>
 	</servlet-mapping>
 	<!-- <servlet> -->

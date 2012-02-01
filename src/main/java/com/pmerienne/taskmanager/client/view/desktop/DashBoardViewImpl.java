@@ -77,6 +77,15 @@ public class DashBoardViewImpl extends Composite implements DashBoardView {
 		this.taskBoard.setTasks(tasks);
 	}
 
+	@Override
+	public void updateTask(Task task) {
+		if (this.project.equals(task.getProject())) {
+			this.taskBoard.removeTask(task);
+			this.taskBoard.addTask(task);
+		}
+
+	}
+
 	private void setProject(Project project) {
 		// Set UI
 		this.project = project;

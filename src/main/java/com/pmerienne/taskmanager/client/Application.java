@@ -80,17 +80,17 @@ public class Application implements EntryPoint {
 			public void onSuccess(User user) {
 				if (user != null) {
 					historyHandler.handleCurrentHistory();
-					overrideMGWTStyleSheet();
+					// overrideMGWTStyleSheet();
 				} else {
 					clientFactory.getPlaceController().goTo(new HomePlace());
-					overrideMGWTStyleSheet();
+					// overrideMGWTStyleSheet();
 				}
 			}
 
 			@Override
 			public void onFailure(Throwable caught) {
 				clientFactory.getPlaceController().goTo(new HomePlace());
-				overrideMGWTStyleSheet();
+				// overrideMGWTStyleSheet();
 			}
 		});
 	}
