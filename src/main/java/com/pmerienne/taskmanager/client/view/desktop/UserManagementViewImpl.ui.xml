@@ -11,26 +11,17 @@
 			<div class="{res.bootstrap.topbarInner}">
 				<div class="{res.bootstrap.container}">
 					<g:Anchor addStyleNames="{res.bootstrap.brand}" text="Task Manager" href="#" />
-
 					<ul ui:field="mainNavigation" class="{res.bootstrap.nav}">
 						<li>
-							<g:Anchor ui:field="dashBoardLink" text="Dashboard"
-								href="#DashBoardPlace" />
+							<g:Anchor ui:field="dashBoardLink" text="Dashboard" href="#DashBoardPlace" />
 						</li>
 						<li>
-							<g:Anchor ui:field="userManagementLink" text="Utilisateurs"
-								href="#UserManagementPlace" />
+							<g:Anchor ui:field="userManagementLink" text="Utilisateurs" href="#UserManagementPlace" />
 						</li>
 					</ul>
 
 					<ul class="{res.bootstrap.nav} {res.bootstrap.secondaryNav}">
-						<form ui:field="loginNavigation" action="">
-							<t:ExtendedTextBox ui:field="login" addStyleNames="{res.bootstrap.inputSmall}" placeholder="Login" />
-							<t:ExtendedPasswordTextBox ui:field="password" addStyleNames="{res.bootstrap.inputSmall}" placeholder="Mot de passe" />
-							<g:Button ui:field="loginButton" text="Se connecter" addStyleNames="{res.bootstrap.btn}"/>
-						</form>
-						
-						<li ui:field="logoutNavigation">
+						<li>
 							<g:Anchor ui:field="logoutLink" text="Déconnexion" href="#" />
 						</li>
 					</ul>
@@ -39,19 +30,19 @@
 		</div>
 
 		<div ui:field="mainContent" class="{res.bootstrap.container} {res.style.mainContent}">
-			<h1>Dashboard</h1>
+			<h1>Administration des utilisateurs</h1>
 			<g:HorizontalPanel height="100%" width="100%" spacing="10">
 				<!-- Left menu -->
-				<g:HTMLPanel height="500px" width="200px">
-					<h2>Projets</h2>
-					<g:ScrollPanel height="100%" addStyleNames="{res.style.bordered}">
-						<d:ProjectList ui:field="projectList" width="100%" height="100%" />
-					</g:ScrollPanel>
+				<g:HTMLPanel height="500px" width="300px">
+					<h2>Utilisateurs</h2>
 				</g:HTMLPanel>
 
-				<!-- Dashboard -->
-				<g:HTMLPanel height="500px" width="700px">
-					<h2 ui:field="projectName" />
+				<!-- From -->
+				<g:HTMLPanel height="500px" width="600px">
+					<h2>Édition</h2>
+					<form class="{res.bootstrap.formStacked}">
+					
+					</form>
 					<g:Label ui:field="projectDescription" />
 					<g:Label ui:field="projectCreationDate" />
 					<d:TaskBoard ui:field="taskBoard"/>

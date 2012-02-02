@@ -20,7 +20,6 @@ import com.googlecode.mgwt.ui.client.MGWT;
 import com.googlecode.mgwt.ui.client.MGWTSettings;
 import com.googlecode.mgwt.ui.client.MGWTSettings.ViewPort;
 import com.googlecode.mgwt.ui.client.MGWTSettings.ViewPort.DENSITY;
-import com.googlecode.mgwt.ui.client.MGWTStyle;
 import com.pmerienne.taskmanager.client.activity.desktop.DesktopActivityMapper;
 import com.pmerienne.taskmanager.client.activity.mobile.MobileActivityMapper;
 import com.pmerienne.taskmanager.client.messaging.RemoteMessageDispatcher;
@@ -54,7 +53,8 @@ public class Application implements EntryPoint {
 		settings.setIconUrl("logo.png");
 		settings.setAddGlosToIcon(true);
 		settings.setFullscreen(true);
-		settings.setPreventScrolling(false);
+		settings.setPreventScrolling(true);
+		MGWT.applySettings(settings);
 
 		// Init display
 		final MobileClientFactory clientFactory = new MobileClientFactoryImpl();
@@ -156,18 +156,18 @@ public class Application implements EntryPoint {
 		}.schedule(1);
 	}
 
-	private void overrideMGWTStyleSheet() {
-		// this will create a link element at the end of head
-		MGWTStyle.getTheme().getMGWTClientBundle().getMainCss().ensureInjected();
-
-		// CSS overriding
-		Element head = Document.get().getElementsByTagName("head").getItem(0);
-		LinkElement linkElement = Document.get().createLinkElement();
-		linkElement.setRel("stylesheet");
-		linkElement.setType("text/css");
-		linkElement.setHref(GWT.getModuleBaseURL() + "mgwt-override.css");
-		head.appendChild(linkElement);
-	}
+	// private void overrideMGWTStyleSheet() {
+	// // this will create a link element at the end of head
+	// MGWTStyle.getTheme().getMGWTClientBundle().getMainCss().ensureInjected();
+	//
+	// // CSS overriding
+	// Element head = Document.get().getElementsByTagName("head").getItem(0);
+	// LinkElement linkElement = Document.get().createLinkElement();
+	// linkElement.setRel("stylesheet");
+	// linkElement.setType("text/css");
+	// linkElement.setHref(GWT.getModuleBaseURL() + "mgwt-override.css");
+	// head.appendChild(linkElement);
+	// }
 
 	private void overrideBootstrapStyleSheet() {
 		// CSS overriding
