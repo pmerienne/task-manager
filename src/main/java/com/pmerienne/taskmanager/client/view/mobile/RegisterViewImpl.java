@@ -77,17 +77,6 @@ public class RegisterViewImpl extends Composite implements RegisterView {
 		this.login.setValue("");
 		this.password.setValue("");
 		this.passwordAgain.setValue("");
-		this.setPending(false);
-	}
-	
-	@Override
-	public void setPending(boolean pending) {
-		this.pending = pending;
-		if(pending) {
-			this.register.setText("Inscription en cours ...");
-		} else {
-			this.register.setText("S'inscrire");
-		}
 	}
 	
 	@Override

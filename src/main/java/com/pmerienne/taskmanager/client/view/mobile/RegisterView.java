@@ -16,7 +16,5 @@ public interface RegisterView extends IsWidget {
 	void setPresenter(Presenter presenter);
 	
 	void clear();
-	
-	void setPending(boolean pending);
 
 }

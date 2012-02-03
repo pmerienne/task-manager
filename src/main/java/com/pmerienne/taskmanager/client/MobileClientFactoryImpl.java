@@ -24,6 +24,8 @@ import com.pmerienne.taskmanager.client.view.mobile.EditTaskView;
 import com.pmerienne.taskmanager.client.view.mobile.EditTaskViewImpl;
 import com.pmerienne.taskmanager.client.view.mobile.HomeView;
 import com.pmerienne.taskmanager.client.view.mobile.HomeViewImpl;
+import com.pmerienne.taskmanager.client.view.mobile.PendingView;
+import com.pmerienne.taskmanager.client.view.mobile.PendingViewImpl;
 import com.pmerienne.taskmanager.client.view.mobile.ProjectDetailView;
 import com.pmerienne.taskmanager.client.view.mobile.ProjectDetailViewImpl;
 import com.pmerienne.taskmanager.client.view.mobile.ProjectListView;
@@ -52,6 +54,7 @@ public class MobileClientFactoryImpl implements MobileClientFactory {
 	private final EditProjectView editProjectView = new EditProjectViewImpl();
 	private final ProjectDetailView projectDetailView = new ProjectDetailViewImpl();
 	private final RegisterView registerView = new RegisterViewImpl();
+	private final PendingView pendingView = new PendingViewImpl();
 
 	@Override
 	public EventBus getEventBus() {
@@ -106,5 +109,10 @@ public class MobileClientFactoryImpl implements MobileClientFactory {
 	@Override
 	public RegisterView getRegisterView() {
 		return registerView;
+	}
+	
+	@Override
+	public PendingView getPendingView() {
+		return pendingView;
 	}
 }

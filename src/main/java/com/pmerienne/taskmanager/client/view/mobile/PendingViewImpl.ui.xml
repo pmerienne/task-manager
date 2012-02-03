@@ -1,0 +1,27 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:m="urn:import:com.pmerienne.taskmanager.client.widget.mobile"
+	xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget" xmlns:c="urn:import:com.googlecode.mgwt.ui.client.widget.celllist"
+	xmlns:l="urn:import:com.pmerienne.taskmanager.client.widget.mobile.list">
+
+	<ui:style>
+		.centered {
+			margin: auto;
+			margin-top: 50px
+		}
+		
+		.message {
+			text-align: center;
+			padding: 20px;
+		}
+	</ui:style>
+
+	<mgwt:LayoutPanel>
+		<mgwt:ScrollPanel>
+			<g:HTMLPanel>
+				<mgwt:ProgressIndicator addStyleNames="{style.centered}" />
+				<g:HTML ui:field="message" text="Veuillez patienter" addStyleNames="{style.message}" />
+			</g:HTMLPanel>
+		</mgwt:ScrollPanel>
+	</mgwt:LayoutPanel>
+</ui:UiBinder> 

@@ -20,6 +20,7 @@ import com.google.gwt.event.shared.EventBus;
 import com.pmerienne.taskmanager.client.view.mobile.EditProjectView;
 import com.pmerienne.taskmanager.client.view.mobile.EditTaskView;
 import com.pmerienne.taskmanager.client.view.mobile.HomeView;
+import com.pmerienne.taskmanager.client.view.mobile.PendingView;
 import com.pmerienne.taskmanager.client.view.mobile.ProjectDetailView;
 import com.pmerienne.taskmanager.client.view.mobile.ProjectListView;
 import com.pmerienne.taskmanager.client.view.mobile.RegisterView;
@@ -50,4 +51,6 @@ public interface MobileClientFactory {
 	ProjectDetailView getProjectDetailView();
 	
 	RegisterView getRegisterView();
+	
+	PendingView getPendingView();
 }
