@@ -92,24 +92,24 @@ public class TaskListViewImpl extends Composite implements TaskListView {
 
 	@Override
 	public void setProject(Project project) {
-		String title = project.getName();
-		switch (this.status) {
-		case TODO:
-			title += " : à faire";
-			break;
-		case DOING:
-			title += " : en cours";
-			break;
-		case DONE:
-			title += " : finies";
-			break;
-		case ARCHIVED:
-			title += " : archivées";
-			break;
-		default:
-			break;
-		}
-		this.title.setText(title);
+//		String title = project.getName();
+//		switch (this.status) {
+//		case TODO:
+//			title += " : à faire";
+//			break;
+//		case DOING:
+//			title += " : en cours";
+//			break;
+//		case DONE:
+//			title += " : finies";
+//			break;
+//		case ARCHIVED:
+//			title += " : archivées";
+//			break;
+//		default:
+//			break;
+//		}
+//		this.title.setText(title);
 	}
 
 	@Override

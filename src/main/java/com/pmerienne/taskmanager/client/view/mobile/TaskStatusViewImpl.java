@@ -77,12 +77,7 @@ public class TaskStatusViewImpl extends Composite implements TaskStatusView {
 	@Override
 	public void setProject(Project project) {
 		this.project = project;
-		if (project != null) {
-			title.setText("Tâches (" + project.getName() + ")");
-		} else {
-			title.setText("Mes tâches");
-		}
-
+		this.title.setText("Mes tâches");
 	}
 
 	@Override

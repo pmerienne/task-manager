@@ -107,10 +107,9 @@ public class EditTaskViewImpl extends Composite implements EditTaskView {
 		this.name.setValue(task.getName());
 		this.description.setValue(task.getDescription());
 		// Project
-		int projectIndex = this.availableProjects.indexOf(task.getProject());
-		if (projectIndex > 0) {
-			this.projectList.setSelectedIndex(projectIndex);
-		}
+		this.synchronizeProject();
+		// Users
+		this.synchronizeUsers();
 		// Status
 		switch (task.getStatus()) {
 		case TODO:
@@ -141,6 +140,26 @@ public class EditTaskViewImpl extends Composite implements EditTaskView {
 			break;
 		}
 	}
+	
+	private void synchronizeProject() {
+		if(this.task != null && !this.availableProjects.isEmpty()) {
+			int projectIndex = this.availableProjects.indexOf(this.task.getProject());
+			if (projectIndex >= 0) {
+				this.projectList.setSelectedIndex(projectIndex);
+			}
+		}
+	}
+	
+	private void synchronizeUsers() {
+		if(this.task != null && !this.availableUsers.isEmpty()) {
+			for(User user : this.task.getUsers()) {
+				int index = this.availableUsers.indexOf(user);
+				if(index >= 0) {
+					this.userList.setItemSelected(index, true);
+				}
+			}
+		}
+	}
 
 	@Override
 	public void setAvailableProjects(List<Project> projects) {
@@ -149,6 +168,7 @@ public class EditTaskViewImpl extends Composite implements EditTaskView {
 		for (Project project : projects) {
 			this.projectList.addItem(project.getName());
 		}
+		this.synchronizeProject();
 	}
 
 	@Override
@@ -158,6 +178,7 @@ public class EditTaskViewImpl extends Composite implements EditTaskView {
 		for (User user : users) {
 			this.userList.addItem(user.getLogin());
 		}
+		this.synchronizeUsers();
 	}
 
 	@Override
