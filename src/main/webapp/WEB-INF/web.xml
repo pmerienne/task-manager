@@ -19,7 +19,8 @@
 
 	<filter-mapping>
 		<filter-name>springSecurityFilterChain</filter-name>
-		<url-pattern>/*</url-pattern>
+		<!-- On ne sécurise que nos services ! -->
+		<url-pattern>/*.rpc</url-pattern>
 	</filter-mapping>
 
 	<!-- Listener permettant de charger le contexte applicatif Spring -->
