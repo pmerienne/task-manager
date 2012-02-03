@@ -47,9 +47,6 @@ public class DashBoardViewImpl extends Composite implements DashBoardView {
 	TaskBoard taskBoard;
 
 	@UiField
-	Element mainNavigation;
-
-	@UiField
 	Element loginNavigation;
 
 	@UiField
@@ -125,12 +122,10 @@ public class DashBoardViewImpl extends Composite implements DashBoardView {
 		this.login.setValue("");
 		this.password.setValue("");
 		if (logged) {
-			this.mainNavigation.getStyle().setVisibility(Visibility.VISIBLE);
 			this.logoutNavigation.getStyle().setVisibility(Visibility.VISIBLE);
 			this.mainContent.getStyle().setVisibility(Visibility.VISIBLE);
 			this.loginNavigation.getStyle().setVisibility(Visibility.HIDDEN);
 		} else {
-			this.mainNavigation.getStyle().setVisibility(Visibility.HIDDEN);
 			this.logoutNavigation.getStyle().setVisibility(Visibility.HIDDEN);
 			this.mainContent.getStyle().setVisibility(Visibility.HIDDEN);
 			this.loginNavigation.getStyle().setVisibility(Visibility.VISIBLE);

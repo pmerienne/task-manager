@@ -12,17 +12,6 @@
 				<div class="{res.bootstrap.container}">
 					<g:Anchor addStyleNames="{res.bootstrap.brand}" text="Task Manager" href="#" />
 
-					<ul ui:field="mainNavigation" class="{res.bootstrap.nav}">
-						<li>
-							<g:Anchor ui:field="dashBoardLink" text="Dashboard"
-								href="#DashBoardPlace" />
-						</li>
-						<li>
-							<g:Anchor ui:field="userManagementLink" text="Utilisateurs"
-								href="#UserManagementPlace" />
-						</li>
-					</ul>
-
 					<ul class="{res.bootstrap.nav} {res.bootstrap.secondaryNav}">
 						<form ui:field="loginNavigation" action="">
 							<t:ExtendedTextBox ui:field="login" addStyleNames="{res.bootstrap.inputSmall}" placeholder="Login" />

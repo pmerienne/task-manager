@@ -6,34 +6,25 @@
 
 	<mgwt:LayoutPanel>
 		<mgwt:HeaderPanel>
+			<mgwt:left>
+				<mgwt:HeaderButton ui:field="back" text="Revenir" backButton="true" />
+			</mgwt:left>
 			<mgwt:center>
-				<g:HTML text="Kanban Mobile" />
+				<g:HTML text="Inscription" />
 			</mgwt:center>
-			<mgwt:right>
-				<g:HTMLPanel>
-					<mgwt:HeaderButton ui:field="register" text="Inscription" forwardButton="true" />
-					<mgwt:HeaderButton ui:field="logout" text="Logout" forwardButton="true" />
-				</g:HTMLPanel>
-			</mgwt:right>
 		</mgwt:HeaderPanel>
 
-		<mgwt:ScrollPanel ui:field="userPanel" visible="false">
-			<g:HTMLPanel>
-				<h1 ui:field="welcomeMessage" />
-				<l:ViewList ui:field="viewList" />
-			</g:HTMLPanel>
-		</mgwt:ScrollPanel>
-
-		<mgwt:ScrollPanel ui:field="loginPanel">
-			<g:HTMLPanel>
-				<form>
+		<mgwt:ScrollPanel>
+			<g:FormPanel ui:field="form">
+				<g:HTMLPanel>
 					<mgwt:WidgetList round="true">
 						<mgwt:MTextBox ui:field="login" placeHolder="Login" />
 						<mgwt:MPasswordTextBox ui:field="password" placeHolder="Mot de passe" />
+						<mgwt:MPasswordTextBox ui:field="passwordAgain" placeHolder="Confirmer le mot de passe" />
 					</mgwt:WidgetList>
-					<mgwt:Button ui:field="log" text="Connexion" round="true" />
-				</form>
-			</g:HTMLPanel>
+					<mgwt:Button ui:field="register" text="S'inscrire" round="true" />
+				</g:HTMLPanel>
+			</g:FormPanel>
 		</mgwt:ScrollPanel>
 	</mgwt:LayoutPanel>
 </ui:UiBinder> 

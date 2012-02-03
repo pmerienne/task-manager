@@ -11,6 +11,8 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.mgwt.dom.client.event.tap.TapEvent;
+import com.googlecode.mgwt.ui.client.MGWT;
+import com.googlecode.mgwt.ui.client.widget.HeaderButton;
 import com.googlecode.mgwt.ui.client.widget.MRadioButton;
 import com.googlecode.mgwt.ui.client.widget.MTextArea;
 import com.googlecode.mgwt.ui.client.widget.MTextBox;
@@ -25,6 +27,9 @@ public class EditTaskViewImpl extends Composite implements EditTaskView {
 
 	interface EditTaskViewImplUiBinder extends UiBinder<Widget, EditTaskViewImpl> {
 	}
+
+	@UiField
+	HeaderButton cancel;
 
 	@UiField
 	MTextBox name;
@@ -60,6 +65,7 @@ public class EditTaskViewImpl extends Composite implements EditTaskView {
 
 	public EditTaskViewImpl() {
 		initWidget(uiBinder.createAndBindUi(this));
+		this.cancel.setVisible(!MGWT.getOsDetection().isAndroid());
 	}
 
 	@UiHandler("cancel")

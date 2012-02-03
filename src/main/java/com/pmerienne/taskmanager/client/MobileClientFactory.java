@@ -22,6 +22,7 @@ import com.pmerienne.taskmanager.client.view.mobile.EditTaskView;
 import com.pmerienne.taskmanager.client.view.mobile.HomeView;
 import com.pmerienne.taskmanager.client.view.mobile.ProjectDetailView;
 import com.pmerienne.taskmanager.client.view.mobile.ProjectListView;
+import com.pmerienne.taskmanager.client.view.mobile.RegisterView;
 import com.pmerienne.taskmanager.client.view.mobile.TaskDetailView;
 import com.pmerienne.taskmanager.client.view.mobile.TaskListView;
 import com.pmerienne.taskmanager.client.view.mobile.TaskStatusView;
@@ -47,4 +48,6 @@ public interface MobileClientFactory {
 	EditProjectView getEditProjectView();
 
 	ProjectDetailView getProjectDetailView();
+	
+	RegisterView getRegisterView();
 }

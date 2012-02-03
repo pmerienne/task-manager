@@ -9,6 +9,7 @@ import com.pmerienne.taskmanager.client.place.mobile.EditTaskPlace;
 import com.pmerienne.taskmanager.client.place.mobile.HomePlace;
 import com.pmerienne.taskmanager.client.place.mobile.ProjectDetailPlace;
 import com.pmerienne.taskmanager.client.place.mobile.ProjectListPlace;
+import com.pmerienne.taskmanager.client.place.mobile.RegisterPlace;
 import com.pmerienne.taskmanager.client.place.mobile.TaskDetailPlace;
 import com.pmerienne.taskmanager.client.place.mobile.TaskListPlace;
 import com.pmerienne.taskmanager.client.place.mobile.TaskStatusPlace;
@@ -24,7 +25,10 @@ public class MobileActivityMapper implements ActivityMapper {
 
 	@Override
 	public Activity getActivity(Place place) {
-		if (place instanceof HomePlace) {
+		if(place instanceof RegisterPlace) {
+			// Register
+			return new RegisterActivity(clientFactory);
+		}else if (place instanceof HomePlace) {
 			// Home
 			return new HomeActivity(clientFactory);
 		} else if (place instanceof ProjectListPlace) {

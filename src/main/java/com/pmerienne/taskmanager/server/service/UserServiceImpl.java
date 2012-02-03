@@ -3,6 +3,7 @@ package com.pmerienne.taskmanager.server.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Service;
 
 import com.pmerienne.taskmanager.server.repository.UserRepository;
 import com.pmerienne.taskmanager.server.security.LoggedUser;
+import com.pmerienne.taskmanager.shared.exception.UserAlreadyExistsException;
 import com.pmerienne.taskmanager.shared.model.User;
 import com.pmerienne.taskmanager.shared.service.UserService;
 
@@ -58,7 +60,13 @@ public class UserServiceImpl implements UserService, InitializingBean {
 	}
 
 	@Override
-	public User save(User user) {
+	public User save(User user) throws UserAlreadyExistsException {
+		if(StringUtils.isEmpty(user.getId())) {
+			User existingUser = this.userRepository.findByLogin(user.getLogin());
+			if(existingUser != null) {
+				throw new UserAlreadyExistsException("L'utilisateur " + user.getLogin() + " existe déjà");
+			}
+		}
 		return this.userRepository.save(user);
 	}
 

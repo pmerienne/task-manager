@@ -11,6 +11,13 @@ public class MobileAnimationMapper implements AnimationMapper {
 		if (oldPlace == null) {
 			return Animation.FADE;
 		}
+		// Home / register
+		if (oldPlace instanceof HomePlace && newPlace instanceof RegisterPlace) {
+			return Animation.SLIDE;
+		}
+		if (oldPlace instanceof RegisterPlace && newPlace instanceof HomePlace) {
+			return Animation.SLIDE_REVERSE;
+		}
 		// Home / project list
 		if (oldPlace instanceof HomePlace && newPlace instanceof ProjectListPlace) {
 			return Animation.SLIDE;

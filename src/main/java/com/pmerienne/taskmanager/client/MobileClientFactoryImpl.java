@@ -28,6 +28,8 @@ import com.pmerienne.taskmanager.client.view.mobile.ProjectDetailView;
 import com.pmerienne.taskmanager.client.view.mobile.ProjectDetailViewImpl;
 import com.pmerienne.taskmanager.client.view.mobile.ProjectListView;
 import com.pmerienne.taskmanager.client.view.mobile.ProjectListViewImpl;
+import com.pmerienne.taskmanager.client.view.mobile.RegisterView;
+import com.pmerienne.taskmanager.client.view.mobile.RegisterViewImpl;
 import com.pmerienne.taskmanager.client.view.mobile.TaskDetailView;
 import com.pmerienne.taskmanager.client.view.mobile.TaskDetailViewImpl;
 import com.pmerienne.taskmanager.client.view.mobile.TaskListView;
@@ -49,6 +51,7 @@ public class MobileClientFactoryImpl implements MobileClientFactory {
 	private final ProjectListView projectListView = new ProjectListViewImpl();
 	private final EditProjectView editProjectView = new EditProjectViewImpl();
 	private final ProjectDetailView projectDetailView = new ProjectDetailViewImpl();
+	private final RegisterView registerView = new RegisterViewImpl();
 
 	@Override
 	public EventBus getEventBus() {
@@ -98,5 +101,10 @@ public class MobileClientFactoryImpl implements MobileClientFactory {
 	@Override
 	public ProjectDetailView getProjectDetailView() {
 		return projectDetailView;
+	}
+	
+	@Override
+	public RegisterView getRegisterView() {
+		return registerView;
 	}
 }

@@ -12,7 +12,9 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.mgwt.dom.client.event.tap.TapEvent;
+import com.googlecode.mgwt.ui.client.MGWT;
 import com.googlecode.mgwt.ui.client.widget.Button;
+import com.googlecode.mgwt.ui.client.widget.HeaderButton;
 import com.googlecode.mgwt.ui.client.widget.MTextArea;
 import com.googlecode.mgwt.ui.client.widget.MTextBox;
 import com.pmerienne.taskmanager.client.utils.StringUtils;
@@ -26,6 +28,9 @@ public class EditProjectViewImpl extends Composite implements EditProjectView {
 	interface EditProjectViewImplUiBinder extends UiBinder<Widget, EditProjectViewImpl> {
 	}
 
+	@UiField
+	HeaderButton cancel;
+	
 	@UiField
 	ListBox userList;
 
@@ -46,6 +51,7 @@ public class EditProjectViewImpl extends Composite implements EditProjectView {
 
 	public EditProjectViewImpl() {
 		initWidget(uiBinder.createAndBindUi(this));
+		this.cancel.setVisible(!MGWT.getOsDetection().isAndroid());
 	}
 
 	@UiHandler("cancel")

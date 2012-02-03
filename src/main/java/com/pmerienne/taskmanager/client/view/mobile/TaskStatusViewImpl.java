@@ -9,6 +9,8 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.mgwt.dom.client.event.tap.TapEvent;
+import com.googlecode.mgwt.ui.client.MGWT;
+import com.googlecode.mgwt.ui.client.widget.HeaderButton;
 import com.googlecode.mgwt.ui.client.widget.celllist.CellSelectedEvent;
 import com.pmerienne.taskmanager.client.place.mobile.EditTaskPlace;
 import com.pmerienne.taskmanager.client.place.mobile.TaskListPlace;
@@ -23,6 +25,9 @@ public class TaskStatusViewImpl extends Composite implements TaskStatusView {
 	}
 
 	@UiField
+	HeaderButton back;
+
+	@UiField
 	HTML title;
 
 	private Presenter presenter;
@@ -31,6 +36,7 @@ public class TaskStatusViewImpl extends Composite implements TaskStatusView {
 
 	public TaskStatusViewImpl() {
 		initWidget(uiBinder.createAndBindUi(this));
+		this.back.setVisible(!MGWT.getOsDetection().isAndroid());
 	}
 
 	@UiHandler("back")

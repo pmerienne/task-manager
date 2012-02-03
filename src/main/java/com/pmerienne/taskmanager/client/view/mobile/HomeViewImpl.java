@@ -8,11 +8,13 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.mgwt.dom.client.event.tap.TapEvent;
+import com.googlecode.mgwt.ui.client.widget.HeaderButton;
 import com.googlecode.mgwt.ui.client.widget.MPasswordTextBox;
 import com.googlecode.mgwt.ui.client.widget.MTextBox;
 import com.googlecode.mgwt.ui.client.widget.ScrollPanel;
 import com.googlecode.mgwt.ui.client.widget.celllist.CellSelectedEvent;
 import com.pmerienne.taskmanager.client.place.mobile.ProjectListPlace;
+import com.pmerienne.taskmanager.client.place.mobile.RegisterPlace;
 import com.pmerienne.taskmanager.client.place.mobile.TaskStatusPlace;
 import com.pmerienne.taskmanager.client.widget.mobile.list.ViewList;
 import com.pmerienne.taskmanager.client.widget.mobile.list.ViewList.Item;
@@ -27,6 +29,12 @@ public class HomeViewImpl extends Composite implements HomeView {
 
 	@UiField
 	HeadingElement welcomeMessage;
+
+	@UiField
+	HeaderButton register;
+
+	@UiField
+	HeaderButton logout;
 
 	@UiField
 	ViewList viewList;
@@ -48,7 +56,17 @@ public class HomeViewImpl extends Composite implements HomeView {
 	public HomeViewImpl() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
+	
+	@UiHandler("register")
+	protected void onRegisterTaped(TapEvent event) {
+		this.presenter.goTo(new RegisterPlace());
+	}
 
+	@UiHandler("logout")
+	protected void onLogoutTaped(TapEvent event) {
+		this.presenter.logout();
+	}
+	
 	@UiHandler("viewList")
 	protected void onViewSelected(CellSelectedEvent event) {
 		Item item = this.viewList.getItem(event.getIndex());
@@ -60,7 +78,7 @@ public class HomeViewImpl extends Composite implements HomeView {
 			this.presenter.goTo(new TaskStatusPlace());
 			break;
 		case OPTIONS:
-
+			// TODO
 			break;
 		default:
 			break;
@@ -74,6 +92,8 @@ public class HomeViewImpl extends Composite implements HomeView {
 
 	@Override
 	public void setUser(User user) {
+		this.register.setVisible(user == null);
+		this.logout.setVisible(user != null);
 		if (user != null) {
 			this.welcomeMessage.setInnerHTML("Bienvenue " + user.getLogin());
 			this.loginPanel.setVisible(false);

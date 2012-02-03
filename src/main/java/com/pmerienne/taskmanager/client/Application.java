@@ -20,6 +20,7 @@ import com.googlecode.mgwt.ui.client.MGWT;
 import com.googlecode.mgwt.ui.client.MGWTSettings;
 import com.googlecode.mgwt.ui.client.MGWTSettings.ViewPort;
 import com.googlecode.mgwt.ui.client.MGWTSettings.ViewPort.DENSITY;
+import com.googlecode.mgwt.ui.client.MGWTStyle;
 import com.pmerienne.taskmanager.client.activity.desktop.DesktopActivityMapper;
 import com.pmerienne.taskmanager.client.activity.mobile.MobileActivityMapper;
 import com.pmerienne.taskmanager.client.messaging.RemoteMessageDispatcher;
@@ -29,13 +30,14 @@ import com.pmerienne.taskmanager.client.place.mobile.HomePlace;
 import com.pmerienne.taskmanager.client.place.mobile.MobileAnimationMapper;
 import com.pmerienne.taskmanager.client.place.mobile.MobilePlaceHistoryMapper;
 import com.pmerienne.taskmanager.client.resource.ResourceBundle;
+import com.pmerienne.taskmanager.client.theme.TaskManagerTheme;
 import com.pmerienne.taskmanager.client.utils.Services;
 import com.pmerienne.taskmanager.shared.model.User;
 
 public class Application implements EntryPoint {
 
 	private void start() {
-		if (MGWT.getOsDetection().isDesktop()) {
+		if (!MGWT.getOsDetection().isDesktop()) {
 			createDesktopApplication();
 		} else {
 			createMobileApplication();
@@ -45,6 +47,7 @@ public class Application implements EntryPoint {
 	@SuppressWarnings("deprecation")
 	private void createMobileApplication() {
 		// MGWT settings
+		MGWTStyle.setTheme(TaskManagerTheme.get());
 		ViewPort viewPort = new MGWTSettings.ViewPort();
 		viewPort.setTargetDensity(DENSITY.MEDIUM);
 		viewPort.setUserScaleAble(false).setMinimumScale(1.0).setMinimumScale(1.0).setMaximumScale(1.0);
