@@ -14,7 +14,7 @@
 		<!-- Dependencies versions -->
 		<gwt.version>2.4.0</gwt.version>
 		<gwt-visualization.version>1.0.2</gwt-visualization.version>
-		<mgwt.version>1.0.1</mgwt.version>
+		<mgwt.version>1.0.2</mgwt.version>
 		<gwt-dnd.version>2.5.6</gwt-dnd.version>
 		<gwteventservice.version>1.2.0-RC1</gwteventservice.version>
 		<spring.version>3.1.0.RC2</spring.version>

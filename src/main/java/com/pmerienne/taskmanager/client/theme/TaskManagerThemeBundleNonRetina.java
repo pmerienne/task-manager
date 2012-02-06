@@ -1,7 +1,8 @@
 package com.pmerienne.taskmanager.client.theme;
 
-import com.googlecode.mgwt.ui.client.theme.base.MGWTClientBundleBaseThemeNonRetina;
+import com.googlecode.mgwt.ui.client.theme.mgwt.MGWTColorBundleNonRetina;
 
-public interface TaskManagerThemeBundleNonRetina extends MGWTClientBundleBaseThemeNonRetina {
+
+public interface TaskManagerThemeBundleNonRetina extends MGWTColorBundleNonRetina {
 
 }
