@@ -113,6 +113,7 @@
 					<execution>
 						<configuration>
 							<module>com.pmerienne.taskmanager.TaskManager</module>
+							 <extraJvmArgs>-Xmx1024m -Xms1024m -XX:-UseGCOverheadLimit</extraJvmArgs>
 						</configuration>
 						<goals>
 							<goal>compile</goal>
