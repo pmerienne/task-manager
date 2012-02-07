@@ -1,0 +1,8 @@
+Ce projet sert de bac à sable pour différents outils/frameworks web tel que cloudfoundry, mongodb, spring-data, spring 3.1, gwteventservice et mgwt.
+
+Voir : http://task-manager.cloudfoundry.com
+
+L'accès via un poste fixe affiche un dashboard qui se met automatiquement à jour grâce au data-push. Les modifications se font via un accès mobile.
+
+
+
